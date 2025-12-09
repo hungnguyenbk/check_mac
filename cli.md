@@ -119,3 +119,30 @@ sudo sysdiagnose -f ~/Desktop/
 | **PPR001** | Có thể có lỗi với bộ xử lý (CPU).                                                |
 | **PPP001** | Có thể có lỗi với bộ sạc / adapter nguồn.                                        |
 | **NDK001** | Có thể có lỗi với bàn phím.                                                      |
+
+# Check adapter power
+
+  About This Mac → System Report → Power
+
+```bash
+pmset -g batt
+
+AC attached: Yes
+Charging: Yes
+```
+
+show history 
+```bash
+log show --style syslog | grep -i "Battery" | grep "adapter"
+```
+Nếu nhiều dòng báo:
+ - incompatible adapter
+ - low wattage
+ - charging limited
+→ Sạc không chuẩn hoặc cáp lỗi.
+
+App
+1. CoconutBattery
+
+
+
